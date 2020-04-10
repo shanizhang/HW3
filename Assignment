@@ -1,0 +1,34 @@
+*a.) 
+gen A = yrb > 0
+logit A v1 v2 v3 v4 v5 v6 v7 v8 
+margins, dydx(*)
+probit A v1 v2 v3 v4 v5 v6 v7 v8 
+margins, dydx(*)
+
+ summarize v7
+  summarize v8
+*B.)
+oprobit v1 v2 v3 v4 v5 v6 v7 v8 
+
+mfx, predict(outcome(1))
+mfx, predict(outcome(2))
+mfx, predict(outcome(3))
+mfx, predict(outcome(4))
+mfx, predict(outcome(5))
+
+
+*Question 2 
+
+
+*a) 
+poisson hospvis female age handdum handper hhninc educ working bluec whitec self public 
+margins, dydx(*)
+
+*b
+
+regress hospvis female age handdum handper hhninc educ working bluec whitec self public
+
+*c
+poisson hospvis female age handdum handper hhninc educ working bluec whitec self public 
+
+poisgof
